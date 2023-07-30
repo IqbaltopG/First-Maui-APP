@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using FirstApp.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace FirstApp;
 
@@ -15,10 +16,15 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
+		
+
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
+        builder.Services.AddSingleton<MainPage>();
+        IServiceCollection serviceCollection = builder.Services.AddSingleton<MainViewModel>();
+
+        return builder.Build();
 	}
 }

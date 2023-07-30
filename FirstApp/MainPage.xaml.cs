@@ -1,16 +1,18 @@
-﻿namespace FirstApp;
+﻿using FirstApp.ViewModel;
+
+namespace FirstApp;
 
 public partial class MainPage : ContentPage
 {
 	
 
-	public MainPage()
+	public MainPage(MainViewModel vm)
 	{
 		InitializeComponent();
+		BindingContext = vm;
 	}
-
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
+	
 		
-}}
+		
+		}
 
